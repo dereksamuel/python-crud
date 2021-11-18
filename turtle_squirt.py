@@ -1,7 +1,8 @@
 from turtle import Turtle, Screen, window_height, window_width
 
 window = Screen()
-grass_counter = -10
+# window.bgcolor("yellow")
+grass_counter = -15
 
 width = -window_width()
 height = window_height()
@@ -18,7 +19,7 @@ square.position()
 square.setx(-5)
 
 for i in range(1, height):
-  module_result = i % 6
+  module_result = i % 5
   if (module_result == 0):
     turtle.color("gray")
     turtle.speed(0.5)
@@ -27,15 +28,15 @@ for i in range(1, height):
     turtle.sety((height / 2) - i)
     turtle.pendown()
 
-for i in range(1, height):
-  module_result = i % 6
-  if (module_result == 0):
-    turtle.color("gray")
-    turtle.speed(0.5)
-    turtle.sety(-window_height() / 2)
-    turtle.sety(window_height() / 2)
-    turtle.setx((height / 2) - i)
-    turtle.pendown()
+# for i in range(1, height):
+#   module_result = i % 6
+#   if (module_result == 0):
+#     turtle.color("gray")
+#     turtle.speed(0.5)
+#     turtle.sety(-window_height() / 2)
+#     turtle.sety(window_height() / 2)
+#     turtle.setx((height / 2) - i)
+#     turtle.pendown()
 
 turtle.penup()
 
@@ -78,14 +79,12 @@ turtle.sety(-height / 2)
 
 for i in range(1, 100):
   grass_counter -= i;
-  if (grass_counter <= 1):
-    grass_counter = -10
   turtle.pendown()
   module_result = i % 6
   turtle.color("black")
   turtle.speed(0.5)
   turtle.setx(i)
-  turtle.sety((-height / 2) - grass_counter)
-  turtle.sety((-height / 2) + grass_counter)
+  turtle.sety((-height / 2))
+  turtle.sety((-height / 2) + i)
 
 window.mainloop()
